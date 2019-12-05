@@ -1,52 +1,71 @@
 <template lang="pug">
   .maincontent
-    table
-      tr
-        td Команда
-        td №
-        td(
-          v-for="(team, index) in teams"
-          ) {{ index+1 }}
-      tr(
-        v-for="(team, index) in teams"
-      )
-        td {{ team.name }}
-        td {{ index+1 }}
+    .championship
+      table.championship__table
+        thead.championship__head
+          td.championship__head-cell.championship__head-team Команда
+          td.championship__head-cell.championship__head-number №
+          td.championship__head-cell(
+            v-for="(team, index) in ALLTEAMS"
+          ) {{ index=index+1 }}
+        tbody.championship__table-body
+          tr.championship__table-rows(
+            v-for="(team, index) in ALLTEAMS"
+          )
+            td {{ team.name }}
+            td {{ index=index+1 }}
+            td.championship__table-results(
+              v-for="team in ALLTEAMS"
+              )
+
+      
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
-  data() {
-    return {
-      teams: [
-        {
-        "id": "1",
-        "score": "7",
-        "position": "0",
-        "name": "КОНАР",
-        },
-        {
-          "id": "2",
-          "position": "0",
-          "score": "5",
-          "name": "ИНТЕРСВЯЗЬ",
-        },
-        {
-          "id": "3",
-          "position": "0",
-          "score": "10",
-          "name": "Уральская Кузница",
-        },
-        {
-          "id": "4",
-          "position": "0",
-          "score": "6",
-          "name": "ЮУрГУ",
-        },        
-      ]
-    };
+  mounted() {
+    this.fetchTeams();
   },
-  created: {
-  },
+  computed: mapGetters(["ALLTEAMS"]),
+  methods: mapActions(["fetchTeams"]),
 }
 </script>
+
+<style lang="pcss" scoped>
+.maincontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.championship {
+  width: 50%;
+  height: 50%;
+}
+
+td {
+  border: 1px solid black;
+  height: 30px;
+  text-align: center;
+}
+
+.championship__table {
+  margin-top: 200px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.championship__head-cell {
+  background: #888;
+}
+
+.championship__table-results {
+  width: 40px;
+}
+
+</style>

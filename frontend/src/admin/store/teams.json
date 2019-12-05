@@ -1,42 +1,62 @@
 [
   {
   "id": "1",
+  "scores": "0",
+  "position": "0",
   "name": "КОНАР",
   },
   {
     "id": "2",
+    "scores": "0",
+    "position": "0",
     "name": "ИНТЕРСВЯЗЬ",
   },
   {
     "id": "3",
+    "scores": "0",
+    "position": "0",
     "name": "Уральская Кузница",
   },
   {
     "id": "4",
+    "scores": "0",
+    "position": "0",
     "name": "ЮУрГУ",
   },
   {
     "id": "5",
+    "scores": "0",
+    "position": "0",
     "name": "Газпром",
   },
   {
     "id": "6",
+    "scores": "0",
+    "position": "0",
     "name": "ЧТС",
   },
   {
     "id": "7",
+    "scores": "0",
+    "position": "0",
     "name": "СШОР-1",
   },
   {
     "id": "8",
+    "scores": "0",
+    "position": "0",
     "name": "Плазматех",
   },
   {
     "id": "9",
+    "scores": "0",
+    "position": "0",
     "name": "УралГУФК",
   },
   {
     "id": "10",
+    "scores": "0",
+    "position": "0",
     "name": "Буревестник",
   },
 ]
