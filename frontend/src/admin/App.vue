@@ -17,6 +17,7 @@
             td.championship__table-results(
               v-for="team in ALLTEAMS"
               )
+              matchResult
 
       
 </template>
@@ -25,7 +26,7 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
-    
+    matchResult: () => import ("./components/matchResult"),
   },
   mounted() {
     this.fetchTeams();
