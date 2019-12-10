@@ -6,18 +6,23 @@
           td.championship__head-cell.championship__head-team Команда
           td.championship__head-cell.championship__head-number №
           td.championship__head-cell(
-            v-for="(team, index) in ALLTEAMS"
-          ) {{ index=index+1 }}
+            v-for="(team, index) in ALLTEAMS"            
+          ) {{ index+1 }}
         tbody.championship__table-body
           tr.championship__table-rows(
             v-for="(team, index) in ALLTEAMS"
+            v-model="indexX"
           )
             td {{ team.name }}
-            td {{ index=index+1 }}
+            td {{ index+1 }}
             td.championship__table-results(
               v-for="team in ALLTEAMS"
+              v-model="indexY"
               )
-              matchResult
+              matchResult(                
+                :indexX="indexX"
+                :indexY="indexY"
+              )
 
       
 </template>
@@ -27,6 +32,12 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
     matchResult: () => import ("./components/matchResult"),
+  },
+  data() {
+    return {
+      indexY: 0,
+      indexX: 0,
+    }
   },
   mounted() {
     this.fetchTeams();

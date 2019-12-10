@@ -1,9 +1,9 @@
 <template lang="pug">
-h1  hi!
+h2 ...{{ indexX }} {{ indexY }}
 </template>
 
 <script>
 export default {
-  
+  props: ["indexX","indexY"]
 }
 </script>
