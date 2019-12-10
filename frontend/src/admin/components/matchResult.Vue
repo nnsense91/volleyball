@@ -1,9 +1,9 @@
 <template lang="pug">
-h2 ...{{ indexX }} {{ indexY }}
+h4 {{ indexX+1 }} {{ indexY+1 }}
 </template>
 
 <script>
 export default {
-  props: ["indexX","indexY"]
-}
+  props: ["indexX", "indexY"]
+};
 </script>

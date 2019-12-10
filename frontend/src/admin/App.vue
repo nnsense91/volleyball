@@ -10,14 +10,13 @@
           ) {{ index+1 }}
         tbody.championship__table-body
           tr.championship__table-rows(
-            v-for="(team, index) in ALLTEAMS"
-            v-model="indexX"
+            v-for="(team, indexX) in ALLTEAMS"
           )
             td {{ team.name }}
-            td {{ index+1 }}
-            td.championship__table-results(
-              v-for="team in ALLTEAMS"
-              v-model="indexY"
+            td {{ indexX+1 }}
+            td.championship__table-results(              
+              v-for="(team, indexY) in ALLTEAMS"
+              indexY = indexY + 1
               )
               matchResult(                
                 :indexX="indexX"
@@ -31,20 +30,17 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
-    matchResult: () => import ("./components/matchResult"),
+    matchResult: () => import("./components/matchResult")
   },
   data() {
-    return {
-      indexY: 0,
-      indexX: 0,
-    }
+    return {};
   },
   mounted() {
     this.fetchTeams();
   },
   computed: mapGetters(["ALLTEAMS"]),
-  methods: mapActions(["fetchTeams"]),
-}
+  methods: mapActions(["fetchTeams"])
+};
 </script>
 
 <style lang="pcss" scoped>
@@ -82,5 +78,4 @@ td {
 .championship__table-results {
   width: 40px;
 }
-
 </style>
