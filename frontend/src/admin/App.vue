@@ -16,7 +16,6 @@
             td {{ indexX+1 }}
             td.championship__table-results(              
               v-for="(team, indexY) in ALLTEAMS"
-              indexY = indexY + 1
               )
               matchResult(                
                 :indexX="indexX"
